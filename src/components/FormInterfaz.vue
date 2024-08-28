@@ -43,11 +43,11 @@ export default {
         <input type="checkbox" id="mostrarTexto" v-model="mostrar" />
       </div>
       <!-- Borde -->
-      <div class="form-group">
+      
         <label for="borde">Borde</label>
         <input type="range" name="borde" id="borde" v-model="borde" />
         
-      </div>
+     
        
       
       <!-- Contenido -->
@@ -56,32 +56,35 @@ export default {
         <textarea id="contenido" v-model="contenido"></textarea>
       
       <!-- Tipografía -->
-      <div class="form-group">
+      
         <label for="tipografia">Tipografía</label>
         <select name="tipo" id="tipografia" v-model="tipoLetraSelected">
           <option v-for="tipografia in tipoLetra" :key="tipografia" :value="tipografia">
             {{ tipografia }}
           </option>
         </select>
-      </div>
+    
       <!-- opaco -->
       <div class="form-group" >
         <label for="opaco">Opaco</label>
         <input type="checkbox" id="opaco" v-model="opaco" />
       </div>
       <!-- Tamaño Letra -->
-      <div class="form-group flex-row">
+      
         <label for="tamañoLetra">Tamaño Letra</label>
-
+        <div class="form-group ">
         <div class="check-item " v-for="tamano in tamanoLetra" :key="tamano.value">
-          <label :for="tamano.value">{{ tamano.label }}</label>
-          <input
+          <div class="form-group ">
+           <input
             type="radio"
             :name="tamano.value"
             :value="tamano.value"
             :id="tamano.value"
             v-model="tamanoLetraSelected"
           />
+          <label :for="tamano.value">{{ tamano.label }}</label>
+          </div>
+         
         </div>
       </div>
     </form>
@@ -132,39 +135,36 @@ form {
   padding-block: 2rem;
   color: white;
   font-size: 20px;
+  font-family:sans-serif;
 
 }
 
 
 input, textarea, label {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   resize: none;
 }
 
+
 .form-group {
  display: flex;
- height: 30px;
- margin-bottom: 30px;
+ 
+
+ 
  input{
 height: 20px;
  }
 
- select{
-  width: 100%;
-  height: 30px;
-  position: relative;
-  left: -90px; 
- }
 }
 
 #mostrarTexto, #opaco{
   position: relative;
   left: -150px; 
-    border: 1px solid white; 
+ 
+  
   }
-
-
 
 #resultado {
   height: 450px;
